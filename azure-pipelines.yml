@@ -1,11 +1,11 @@
 pool:
-  vmImage: ubuntu-16.04
+  vmImage: vs2017-win2016
 trigger:
   - master
 steps:
   - task: Npm@1
     inputs:
-      command: 'install'
+      command: install
   - script: 'npm test'
     displayName: 'Run unit tests'
     continueOnError: true
