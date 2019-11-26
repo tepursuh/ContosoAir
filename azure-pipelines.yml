@@ -3,15 +3,17 @@ pool:
 trigger:
   - master
 steps:
+  - task: NodeTool@0 
+    inputs:
+     versionSpec: '8.x'
+     
   - task: Npm@1
     inputs:
       command: custom
       verbose: false
       customCommand: install
        
-  - task: NodeTool@0 
-    inputs:
-     versionSpec: '8.x'
+  
   - script: 'npm test'
     displayName: 'Run unit tests'
     continueOnError: true
